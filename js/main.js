@@ -17,24 +17,48 @@ function onInputSubmit(event) {
     elements: { gasoline, distance, gasolineCost },
   } = event.currentTarget;
 
-  if (gasoline.value === "" || distance.value === "" || gasolineCost === "") {
+  if (
+    gasoline.value === "" ||
+    distance.value === "" ||
+    gasolineCost.value === ""
+  ) {
     return alert("Заповніть всі поля!");
   }
 
-  averageСonsumption(gasoline.value, distance.value, gasolineCost.value);
+  const calculation = {
+    gas: gasoline.value,
+    dist: distance.value,
+    gasCost: gasolineCost.value,
+  };
+
+  averageСonsumption(calculation);
+
+  window.localStorage.setItem("calculation", JSON.stringify(calculation));
 
   event.currentTarget.reset();
 }
 
-function averageСonsumption(gasoline, distance, gasolineCost) {
-  const avarage = (gasoline / distance) * 100;
-  refs.resultAvarage.innerText = avarage;
+function renderLS() {
+  const calc = JSON.parse(window.localStorage.getItem("calculation"));
 
-  const cost = (gasolineCost * avarage) / 100;
-  refs.resultCost.innerText = cost;
+  if (!calc) {
+    return;
+  }
 
-  const totalCost = cost * distance;
-  refs.resultTotalCost.innerText = totalCost;
+  averageСonsumption(calc);
+  refs.toggleResult.style.display = "block";
+}
+renderLS();
+
+function averageСonsumption({ gas, dist, gasCost }) {
+  const avarage = (gas / dist) * 100;
+  refs.resultAvarage.innerText = Math.round(avarage);
+
+  const cost = (gasCost * avarage) / 100;
+  refs.resultCost.innerText = Math.round(cost);
+
+  const totalCost = cost * dist;
+  refs.resultTotalCost.innerText = Math.round(totalCost);
 
   refs.toggleResult.style.display = "block";
 }
@@ -44,4 +68,5 @@ function handleClear() {
   refs.resultCost.innerText = 0;
   refs.resultTotalCost.innerText = 0;
   refs.toggleResult.style.display = "none";
+  window.localStorage.clear();
 }
