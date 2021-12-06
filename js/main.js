@@ -5,11 +5,17 @@ const refs = {
   resultTotalCost: document.querySelector(".totalCost"),
   clear: document.querySelector(".button__clear"),
   toggleResult: document.querySelector(".result"),
+  kilometers: document.querySelector(".kilometers"),
 
   navRightBtn: document.querySelector(".right"),
   navLeftBtn: document.querySelector(".left"),
   description: document.querySelector(".calculator__discription"),
+  gas: document.querySelector(".gas"),
+  distance: document.querySelector(".distance"),
+  average: document.querySelector(".average"),
 };
+
+console.log(refs.kilometers);
 
 refs.buttonSubmit.addEventListener("submit", onInputSubmit);
 refs.clear.addEventListener("click", handleClear);
@@ -66,6 +72,7 @@ function averageСonsumption({ gas, dist, gasCost }) {
   const totalCost = cost * dist;
   refs.resultTotalCost.innerText = Math.round(totalCost);
 
+  refs.kilometers.innerText = dist;
   refs.toggleResult.style.display = "block";
 }
 
@@ -84,14 +91,17 @@ function handleChangeDistanse() {
   refs.navLeftBtn.classList.remove("active");
   refs.description.innerText =
     "Дізнайтеся скільки пального ви витратите у поїздці, знаючи відстань, яку плануєте проїхати, а також середню витрату палива вашого автомобіля.";
+  refs.gas.innerText = "Витрата палива автомобіля";
+  refs.distance.innerText = "Відстань поїздки";
+  refs.average.innerText = "Витрата пального";
 }
 
 function handleChangeAvarage() {
   refs.navLeftBtn.classList.add("active");
   refs.navRightBtn.classList.remove("active");
-
   refs.description.innerText =
     " Дізнайтеся середню витрату палива автомобіля на 100 кілометрів по пройденій відстані та кількості літрів витраченого пального.";
+  refs.gas.innerText = "Витрачено палива";
+  refs.distance.innerText = "Пройдена відстань";
+  refs.average.innerText = "Середній розхід";
 }
-
-console.log(refs.navRightBtn.classList);
