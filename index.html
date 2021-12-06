@@ -28,21 +28,21 @@
       <form class="calculator__form">
         <label class="calculator__label">
           <span class="calculator__text">Витрачено палива</span>
-          <input type="number" class="calculator__input" placeholder=" " />
+          <input type="number" class="calculator__input" name="gasoline" />
           <span class="calculator__measuring">л</span>
         </label>
         <label class="calculator__label">
           <span class="calculator__text">Пройдена відстань</span>
-          <input type="number" class="calculator__input" />
+          <input type="number" class="calculator__input" name="distance" />
           <span class="calculator__measuring">км</span>
         </label>
         <label class="calculator__label">
           <span class="calculator__text">Вартість палива</span>
-          <input type="number" class="calculator__input" />
+          <input type="number" class="calculator__input" name="gasolineCost" />
           <span class="calculator__measuring">грн/л</span>
         </label>
         <div class="calculator__buttons">
-          <button type="button" class="button">Очистити</button>
+          <button type="button" class="button button__clear">Очистити</button>
           <button type="submit" class="button">Розрахувати</button>
         </div>
       </form>
@@ -50,17 +50,17 @@
       <div class="result">
         <p class="result__item">
           <span class="result__text">Середній розхід</span>
-          <span class="result__cost">0</span>
+          <span class="result__cost avarage">0</span>
           <span class="result__value">л/100км</span>
         </p>
         <p class="result__item">
           <span class="result__text">Середня вартість 1км</span>
-          <span class="result__cost">0</span>
+          <span class="result__cost cost">0</span>
           <span class="result__value">грн/1км</span>
         </p>
         <p class="result__item">
-          <span class="result__text">Pагальна вартість</span>
-          <span class="result__cost">0</span>
+          <span class="result__text">Загальна вартість</span>
+          <span class="result__cost totalCost">0</span>
           <span class="result__value">грн</span>
         </p>
       </div>
