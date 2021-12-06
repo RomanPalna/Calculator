@@ -41,9 +41,6 @@ body {
   color: #5029ee;
 }
 
-.calculator__form {
-}
-
 .calculator__discription {
   display: block;
   padding: 21px 18px 18px;
@@ -54,6 +51,148 @@ body {
   font-size: 14px;
   line-height: 16px;
   text-align: center;
-
   color: #000000;
+}
+
+.calculator__form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 18px 21px;
+}
+
+.calculator__input {
+  position: relative;
+  width: 170px;
+  height: 40px;
+  border: 1px solid #5029ee;
+  box-sizing: border-box;
+  border-radius: 16px;
+  padding-left: 40px;
+  outline-style: none;
+}
+
+.calculator__text {
+  margin: 0 18px 0 auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  align-items: center;
+  text-align: right;
+  color: #5029ee;
+}
+
+.calculator__label {
+  position: relative;
+  margin-bottom: 18px;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.calculator__label:last-of-type {
+  margin-bottom: 29px;
+}
+
+.calculator__measuring {
+  position: absolute;
+  width: 85px;
+  height: 40px;
+  right: 0;
+  top: 0;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #5029ee;
+}
+
+.calculator__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 173px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #5029ee;
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #5029ee;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #5029ee;
+  color: #ffffff;
+}
+
+.result {
+  background-color: #5029ee;
+  color: #ffffff;
+  padding: 18px 22px;
+  text-align: end;
+}
+
+.result__item {
+  margin: 0 0 18px;
+}
+
+.result__item:last-child {
+  margin: 0 0 0;
+}
+
+.result__text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin-right: 22px;
+}
+
+.result__cost {
+  display: inline-block;
+  width: 85px;
+  height: 40px;
+  padding: 10px 0;
+  margin: 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  border: 1px solid #ffffff;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+}
+
+.result__value {
+  display: inline-block;
+  width: 85px;
+  height: 40px;
+  padding: 10px 0;
+  margin: 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  border: 1px solid #ffffff;
+  border-radius: 0 10px 10px 0;
+  text-align: center;
 }

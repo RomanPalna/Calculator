@@ -18,28 +18,52 @@
         <button type="button" class="calculator__nav--item">
           Розхід на відстань
         </button>
-      </div class="calculator__form">
+      </div>
+
       <p class="calculator__discription">
         Дізнайтеся середню витрату палива автомобіля на 100 кілометрів по
         пройденій відстані та кількості літрів витраченого пального.
       </p>
-      <form>
-        <label>
-          Витрачено палива
-          <input type="number" />
-        </label>
-        <label>
-          Пройдена відстань
-          <input type="number" />
-        </label>
-        <label>
-          Вартість палива
-          <input type="number" />
-        </label>
 
-        <button type="button">Очистити</button>
-        <button type="submit">Розрахувати</button>
+      <form class="calculator__form">
+        <label class="calculator__label">
+          <span class="calculator__text">Витрачено палива</span>
+          <input type="number" class="calculator__input" placeholder=" " />
+          <span class="calculator__measuring">л</span>
+        </label>
+        <label class="calculator__label">
+          <span class="calculator__text">Пройдена відстань</span>
+          <input type="number" class="calculator__input" />
+          <span class="calculator__measuring">км</span>
+        </label>
+        <label class="calculator__label">
+          <span class="calculator__text">Вартість палива</span>
+          <input type="number" class="calculator__input" />
+          <span class="calculator__measuring">грн/л</span>
+        </label>
+        <div class="calculator__buttons">
+          <button type="button" class="button">Очистити</button>
+          <button type="submit" class="button">Розрахувати</button>
+        </div>
       </form>
+
+      <div class="result">
+        <p class="result__item">
+          <span class="result__text">Середній розхід</span>
+          <span class="result__cost">0</span>
+          <span class="result__value">л/100км</span>
+        </p>
+        <p class="result__item">
+          <span class="result__text">Середня вартість 1км</span>
+          <span class="result__cost">0</span>
+          <span class="result__value">грн/1км</span>
+        </p>
+        <p class="result__item">
+          <span class="result__text">Pагальна вартість</span>
+          <span class="result__cost">0</span>
+          <span class="result__value">грн</span>
+        </p>
+      </div>
     </section>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
