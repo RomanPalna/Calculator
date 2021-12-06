@@ -142,6 +142,7 @@ body {
 }
 
 .result {
+  display: none;
   background-color: #5029ee;
   color: #ffffff;
   padding: 18px 22px;
