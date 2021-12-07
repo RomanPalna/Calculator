@@ -26,9 +26,3 @@ function handleChangeDistanse() {
   refs.discr.innerText =
     'Дізнайтеся скільки пального ви витратите у поїздці, знаючи відстань, яку плануєте проїхати, а також середню витрату палива вашого автомобіля.';
 }
-
-const calc1 = document.getElementById('formOne');
-
-if (getComputedStyle(calc1).display === 'none') {
-  console.log('Calc 1 return');
-}
