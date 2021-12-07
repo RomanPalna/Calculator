@@ -25,48 +25,107 @@
         пройденій відстані та кількості літрів витраченого пального.
       </p>
 
-      <form class="calculator__form">
-        <label class="calculator__label">
-          <span class="calculator__text gas">Витрачено палива</span>
-          <input type="number" class="calculator__input" name="gasoline" />
-          <span class="calculator__measuring">л</span>
-        </label>
-        <label class="calculator__label">
-          <span class="calculator__text distance">Пройдена відстань</span>
-          <input type="number" class="calculator__input" name="distance" />
-          <span class="calculator__measuring">км</span>
-        </label>
-        <label class="calculator__label">
-          <span class="calculator__text">Вартість палива</span>
-          <input type="number" class="calculator__input" name="gasolineCost" />
-          <span class="calculator__measuring">грн/л</span>
-        </label>
-        <div class="calculator__buttons">
-          <button type="button" class="button button__clear">Очистити</button>
-          <button type="submit" class="button">Розрахувати</button>
+      <!-- first form -->
+      <div class="form__container active__form formOne" id="formOne">
+        <form class="calculator__form calcFrst">
+          <label class="calculator__label">
+            <span class="calculator__text gas">Витрачено палива</span>
+            <input type="number" class="calculator__input" name="gasoline" />
+            <span class="calculator__measuring">л</span>
+          </label>
+          <label class="calculator__label">
+            <span class="calculator__text distance">Пройдена відстань</span>
+            <input type="number" class="calculator__input" name="distance" />
+            <span class="calculator__measuring">км</span>
+          </label>
+          <label class="calculator__label">
+            <span class="calculator__text">Вартість палива</span>
+            <input
+              type="number"
+              class="calculator__input"
+              name="gasolineCost"
+            />
+            <span class="calculator__measuring">грн/л</span>
+          </label>
+          <div class="calculator__buttons">
+            <button type="button" class="button activeBtn button__clear">
+              Очистити
+            </button>
+            <button type="submit" class="button secondBtn">Розрахувати</button>
+          </div>
+        </form>
+        <div class="result">
+          <p class="result__item">
+            <span class="result__text average">Середній розхід</span>
+            <span class="result__cost avarage">0</span>
+            <span class="result__value"
+              >л/<span class="kilometers">0</span>км</span
+            >
+          </p>
+          <p class="result__item">
+            <span class="result__text">Середня вартість 1км</span>
+            <span class="result__cost cost">0</span>
+            <span class="result__value">грн/1км</span>
+          </p>
+          <p class="result__item">
+            <span class="result__text">Загальна вартість</span>
+            <span class="result__cost totalCost">0</span>
+            <span class="result__value">грн</span>
+          </p>
         </div>
-      </form>
+      </div>
 
-      <div class="result">
-        <p class="result__item">
-          <span class="result__text average">Середній розхід</span>
-          <span class="result__cost avarage">0</span>
-          <span class="result__value"
-            >л/<span class="kilometers">0</span>км</span
-          >
-        </p>
-        <p class="result__item">
-          <span class="result__text">Середня вартість 1км</span>
-          <span class="result__cost cost">0</span>
-          <span class="result__value">грн/1км</span>
-        </p>
-        <p class="result__item">
-          <span class="result__text">Загальна вартість</span>
-          <span class="result__cost totalCost">0</span>
-          <span class="result__value">грн</span>
-        </p>
+      <!-- Second Form -->
+      <div class="form__container formScnd" id="formTwo">
+        <form class="calculator__form calcScnd">
+          <label class="calculator__label">
+            <span class="calculator__text gas">Витрата палива автомобіля</span>
+            <input type="number" class="calculator__input" name="gasoline" />
+            <span class="calculator__measuring">л/100км</span>
+          </label>
+          <label class="calculator__label">
+            <span class="calculator__text distance">Відстань поїздки</span>
+            <input type="number" class="calculator__input" name="distance" />
+            <span class="calculator__measuring">км</span>
+          </label>
+          <label class="calculator__label">
+            <span class="calculator__text">Вартість палива</span>
+            <input
+              type="number"
+              class="calculator__input"
+              name="gasolineCost"
+            />
+            <span class="calculator__measuring">грн/л</span>
+          </label>
+          <div class="calculator__buttons">
+            <button type="button" class="button button__clear clear2calc">
+              Очистити
+            </button>
+            <button type="submit" class="button">Розрахувати</button>
+          </div>
+        </form>
+
+        <div class="result calc2result">
+          <p class="result__item">
+            <span class="result__text">Витрата пального</span>
+            <span class="result__cost gasCosts">0</span>
+            <span class="result__value">л/<span class="kilom">0</span>км</span>
+          </p>
+          <p class="result__item">
+            <span class="result__text">Середня вартість 1км</span>
+            <span class="result__cost costOneKm">0</span>
+            <span class="result__value">грн/1км</span>
+          </p>
+          <p class="result__item">
+            <span class="result__text">Загальна вартість</span>
+            <span class="result__cost costDistance">0</span>
+            <span class="result__value">грн</span>
+          </p>
+        </div>
       </div>
     </section>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/toggleNav.js"></script>
+    <script type="module" src="js/calc1.js"></script>
+    <script type="module" src="js/calc2.js"></script>
   </body>
 </html>

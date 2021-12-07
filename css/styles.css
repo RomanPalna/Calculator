@@ -121,6 +121,7 @@ body {
 }
 
 .button {
+  display: block;
   width: 173px;
   height: 40px;
   background: #ffffff;
@@ -196,4 +197,12 @@ body {
   border: 1px solid #ffffff;
   border-radius: 0 10px 10px 0;
   text-align: center;
+}
+
+.form__container {
+  display: none;
+}
+
+.active__form {
+  display: block;
 }
