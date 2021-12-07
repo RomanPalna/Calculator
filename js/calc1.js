@@ -58,15 +58,19 @@ function renderLS() {
   refs.toggleResult.style.display = 'block';
 }
 
+const rounded = function (number) {
+  return +number.toFixed(2);
+};
+
 function averageСonsumption({ gas, dist, gasCost }) {
   const avarage = (gas / dist) * 100;
-  refs.resultAvarage.innerText = Math.round(avarage);
+  refs.resultAvarage.innerText = rounded(avarage);
 
   const cost = (gasCost * avarage) / 100;
-  refs.resultCost.innerText = Math.round(cost);
+  refs.resultCost.innerText = rounded(cost);
 
   const totalCost = cost * dist;
-  refs.resultTotalCost.innerText = Math.round(totalCost);
+  refs.resultTotalCost.innerText = rounded(totalCost);
 
   refs.kilometers.innerText = dist;
   refs.toggleResult.style.display = 'block';
