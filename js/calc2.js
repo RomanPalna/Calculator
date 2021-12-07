@@ -61,13 +61,14 @@ const rounded = function (number) {
 };
 
 function averageDistance({ gas, dist, gasCost }) {
-  const gasCosts = (dist / 100) * (gas / dist) * 100;
-  refs.gasCosts.innerText = rounded(gasCosts);
+  const avarage = (gas / dist) * 100;
+  const AverageGasCosts = (dist / 100) * avarage;
+  refs.gasCosts.innerText = rounded(AverageGasCosts);
 
-  const costOneKm = (gas * gasCost) / 100;
+  const costOneKm = (avarage * gasCost) / 100;
   refs.costOneKm.innerText = rounded(costOneKm);
 
-  const costDistance = costOneKm * gasCosts;
+  const costDistance = AverageGasCosts * gasCost;
   refs.costDistance.innerText = rounded(costDistance);
 
   refs.kilometers.innerText = dist;
