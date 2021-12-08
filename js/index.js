@@ -8,7 +8,6 @@ const refs = {
   resultTotalCost: document.querySelector('.totalCost'),
   clear: document.querySelector('.button__clear'),
   toggleResult: document.querySelector('.result'),
-  kilometers: document.querySelector('.kilometers'),
   firstForm: document.querySelector('.calcFrst'),
   secondForm: document.querySelector('.calcScnd'),
 };
@@ -20,7 +19,6 @@ const refs2 = {
   costDistance: document.querySelector('.costDistance'),
   clear: document.querySelector('.clear2calc'),
   toggleResult: document.querySelector('.calc2result'),
-  kilometers: document.querySelector('.kilom'),
   firstForm: document.querySelector('.calcFrst'),
   secondForm: document.querySelector('.calcScnd'),
 };
@@ -52,7 +50,7 @@ function onInputSubmit(event) {
     distance: distance.value,
     cost: gasolineCost.value,
   };
-
+  renderAverageDistance(calculation);
   renderAverageСonsumption(calculation);
 
   event.currentTarget.reset();
@@ -60,17 +58,26 @@ function onInputSubmit(event) {
 
 function renderLS() {
   const calc1 = document.getElementById('formOne');
+  const calc2 = document.getElementById('formTwo');
 
   if (getComputedStyle(calc1).display === 'none') {
-    console.log('Calc 1 return');
-    return;
+    const calculation2 = JSON.parse(
+      window.localStorage.getItem('calculation2'),
+    );
+    if (!calculation2) {
+      return;
+    }
+    renderAverageDistance(calculation2);
   }
 
-  const calc = JSON.parse(window.localStorage.getItem('calculation'));
-  if (!calc) {
-    return;
+  if (getComputedStyle(calc2).display === 'none') {
+    const calculation = JSON.parse(window.localStorage.getItem('calculation'));
+    if (!calculation) {
+      return;
+    }
+    renderAverageСonsumption(calculation);
   }
-  renderAverageСonsumption(calc);
+
   refs.toggleResult.style.display = 'block';
 }
 
@@ -87,10 +94,17 @@ function renderAverageСonsumption(calculation) {
   window.localStorage.setItem('calculation', JSON.stringify(calculation));
 }
 
+function renderAverageDistance(calculation) {
+  const averageDistance = new AverageDistance(calculation);
+  const { gasCost, costOneKm, costDistance } = averageDistance.calculate();
+  refs2.gasCosts.innerText = rounded(gasCost);
+  refs2.costOneKm.innerText = rounded(costOneKm);
+  refs2.costDistance.innerText = rounded(costDistance);
+  refs.toggleResult.style.display = 'block';
+  window.localStorage.setItem('calculation2', JSON.stringify(calculation));
+}
+
 function handleClear() {
   refs.toggleResult.style.display = 'none';
   window.localStorage.clear();
 }
-
-// const averageDistance = new AverageDistance(calc);
-// console.log(averageDistance.calculate().gasCost);
