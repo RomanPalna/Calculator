@@ -50,7 +50,7 @@ function onInputSubmit(event) {
     distance: distance.value,
     cost: gasolineCost.value,
   };
-  renderAverageDistance(calculation);
+
   renderAverageСonsumption(calculation);
 
   event.currentTarget.reset();
@@ -58,30 +58,37 @@ function onInputSubmit(event) {
 
 function renderLS() {
   const calc1 = document.getElementById('formOne');
-  const calc2 = document.getElementById('formTwo');
 
   if (getComputedStyle(calc1).display === 'none') {
-    const calculation2 = JSON.parse(
-      window.localStorage.getItem('calculation2'),
-    );
-    if (!calculation2) {
-      return;
-    }
-    renderAverageDistance(calculation2);
+    console.log('Calc 1 return');
+    return;
   }
 
+  const calc = JSON.parse(window.localStorage.getItem('calculation'));
+  if (!calc) {
+    return;
+  }
+  renderAverageСonsumption(calc);
+  refs.toggleResult.style.display = 'block';
+}
+
+function renderLSTwo() {
+  const calc2 = document.getElementById('formTwo');
   if (getComputedStyle(calc2).display === 'none') {
-    const calculation = JSON.parse(window.localStorage.getItem('calculation'));
-    if (!calculation) {
-      return;
-    }
-    renderAverageСonsumption(calculation);
+    return;
   }
 
+  const calc = JSON.parse(window.localStorage.getItem('calculation2'));
+  if (!calc) {
+    return;
+  }
+
+  renderAverageDistance(calc);
   refs.toggleResult.style.display = 'block';
 }
 
 renderLS();
+renderLSTwo();
 
 function renderAverageСonsumption(calculation) {
   const averageConsumptionCalc = new AverageСonsumption(calculation);
