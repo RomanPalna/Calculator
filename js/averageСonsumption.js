@@ -5,6 +5,14 @@ export default class AverageСonsumption {
     this.cost = cost;
   }
 
+  onSubmit() {
+    return {
+      gas: this.gas,
+      dist: this.distance,
+      gasCost: this.cost,
+    };
+  }
+
   calculate() {
     const gasPerDistance = this.gas / this.distance;
     return {

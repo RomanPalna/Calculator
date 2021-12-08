@@ -30,12 +30,12 @@ const rounded = function (number) {
   return +number.toFixed(2);
 };
 
-function onInputSubmit(event) {
-  event.preventDefault();
+function onInputSubmit(e) {
+  e.preventDefault();
 
   const {
     elements: { gasoline, distance, gasolineCost },
-  } = event.currentTarget;
+  } = e.currentTarget;
 
   if (
     gasoline.value === '' ||
@@ -45,15 +45,24 @@ function onInputSubmit(event) {
     return alert('Заповніть всі поля!');
   }
 
-  const calculation = {
+  const values = {
     gas: gasoline.value,
-    distance: distance.value,
-    cost: gasolineCost.value,
+    dist: distance.value,
+    gasCost: gasolineCost.value,
   };
 
-  renderAverageСonsumption(calculation);
+  const averageConsumptionCalc = new AverageСonsumption(values);
+  console.log(averageConsumptionCalc.onSubmit());
 
-  event.currentTarget.reset();
+  //   const calculation = {
+  //     gas: gasoline.value,
+  //     distance: distance.value,
+  //     cost: gasolineCost.value,
+  //   };
+
+  //   renderAverageСonsumption(calculation);
+
+  //   e.currentTarget.reset();
 }
 
 function renderLS() {
