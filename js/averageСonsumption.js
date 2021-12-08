@@ -1,5 +1,5 @@
 export default class AverageСonsumption {
-  constructor({ gas, distance, cost }) {
+  constructor({ gas = 0, distance = 0, cost = 0 }) {
     this.gas = gas;
     this.distance = distance;
     this.cost = cost;
