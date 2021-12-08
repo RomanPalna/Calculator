@@ -26,3 +26,5 @@ function handleChangeDistanse() {
   refs.discr.innerText =
     'Дізнайтеся скільки пального ви витратите у поїздці, знаючи відстань, яку плануєте проїхати, а також середню витрату палива вашого автомобіля.';
 }
+
+export default { handleChangeAvarage, handleChangeDistanse };

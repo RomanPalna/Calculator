@@ -79,9 +79,6 @@ function averageСonsumption({ gas, dist, gasCost }) {
 renderLS();
 
 function handleClear() {
-  refs.resultAvarage.innerText = 0;
-  refs.resultCost.innerText = 0;
-  refs.resultTotalCost.innerText = 0;
   refs.toggleResult.style.display = 'none';
   window.localStorage.clear();
 }
