@@ -8,8 +8,8 @@ export default class AverageСonsumption {
   onSubmit() {
     return {
       gas: this.gas,
-      dist: this.distance,
-      gasCost: this.cost,
+      distance: this.distance,
+      cost: this.cost,
     };
   }
 
