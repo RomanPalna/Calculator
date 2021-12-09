@@ -7,10 +7,10 @@ export default function setupAverageDistanceWidget(
   navBtn,
 ) {
   const refs = {
-    resultAverage: document.querySelector('.avarage'),
-    resultCost: document.querySelector('.cost'),
-    resultTotalCost: document.querySelector('.totalCost'),
-    toggleResult: document.querySelector('.result'),
+    resultAverage: document.querySelector('.gasCosts'),
+    resultCost: document.querySelector('.costOneKm'),
+    resultTotalCost: document.querySelector('.costDistance'),
+    toggleResult: document.querySelector('.calc2result'),
   };
 
   const averageDistanceCalculator = new AverageDistanceCalculator();
@@ -20,8 +20,8 @@ export default function setupAverageDistanceWidget(
     refs,
   );
 
-  console.log(averageDistanceWidget);
-  submitBtn.addEventListener('submit', averageDistanceWidget.onSubmit);
-  //   clearBtn.addEventListener('click', averageDistanceWidget.clear);
-  //   navBtn.addEventListener('click', averageDistanceWidget.onOpen);
+  submitBtn.addEventListener('submit', e => {
+    averageDistanceWidget.onSubmit(e);
+  });
+  clearBtn.addEventListener('click', () => averageDistanceWidget.clear());
 }
