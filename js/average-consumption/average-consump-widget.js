@@ -34,7 +34,6 @@ export default class AverageConsumptionWidget {
     };
 
     const data = this.calculator.calculate(calculation);
-    console.log(data);
 
     storeData('average-consumption', data);
 

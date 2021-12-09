@@ -6,7 +6,7 @@ export default class AverageDistanceWidget {
     this.refs = refs;
   }
 
-  render({ gasCost, costOneKm, costDistance }) {
+  render({ gasCost, costOneKm, costDistance, distance }) {
     this.refs.resultAverage.innerText = costOneKm;
     this.refs.resultCost.innerText = gasCost;
     this.refs.resultTotalCost.innerText = costDistance;
@@ -17,6 +17,7 @@ export default class AverageDistanceWidget {
     this.refs.resultAverage.innerText = '';
     this.refs.resultCost.innerText = '';
     this.refs.resultTotalCost.innerText = '';
+    this.refs.kilometers.innerText = '';
     this.refs.toggleResult.style.display = 'none';
     clearData();
   }
@@ -36,7 +37,7 @@ export default class AverageDistanceWidget {
 
     const data = this.calculator.calculate(calculation);
 
-    storeData('average-consumption', data);
+    storeData('average-distance', data);
 
     const { gasCost, costOneKm, costDistance } = data;
     this.render({ gasCost, costOneKm, costDistance });
