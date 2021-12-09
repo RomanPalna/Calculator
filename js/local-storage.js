@@ -5,3 +5,7 @@ export function storeData(key, data) {
 export function getData(key) {
   JSON.parse(window.localStorage.getItem(key));
 }
+
+export function clearData() {
+  window.localStorage.clear();
+}

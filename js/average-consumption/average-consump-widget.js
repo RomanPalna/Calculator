@@ -1,29 +1,28 @@
 import { storeData, clearData } from '../local-storage.js';
 
-export default class AverageDistanceWidget {
-  constructor(calculator, refs) {
-    this.calculator = calculator;
+export default class AverageConsumptionWidget {
+  constructor(refs, calculator) {
     this.refs = refs;
+    this.calculator = calculator;
   }
 
-  render({ gasCost, costOneKm, costDistance }) {
-    this.refs.resultAverage.innerText = costOneKm;
-    this.refs.resultCost.innerText = gasCost;
-    this.refs.resultTotalCost.innerText = costDistance;
+  render({ average, averageCost, totalCost }) {
+    this.refs.resultAvarage.innerText = average;
+    this.refs.resultCost.innerText = averageCost;
+    this.refs.resultTotalCost.innerText = totalCost;
     this.refs.toggleResult.style.display = 'block';
   }
 
   clear() {
-    this.refs.resultAverage.innerText = '';
-    this.refs.resultCost.innerText = '';
-    this.refs.resultTotalCost.innerText = '';
+    this.refs.resultAvarage.innerText = average;
+    this.refs.resultCost.innerText = cost;
+    this.refs.resultTotalCost.innerText = totalCost;
     this.refs.toggleResult.style.display = 'none';
     clearData();
   }
 
   onSubmit(e) {
     e.preventDefault();
-
     const {
       elements: { gasoline, distance, gasolineCost },
     } = e.currentTarget;
@@ -35,11 +34,13 @@ export default class AverageDistanceWidget {
     };
 
     const data = this.calculator.calculate(calculation);
+    console.log(data);
 
     storeData('average-consumption', data);
 
-    const { gasCost, costOneKm, costDistance } = data;
-    this.render({ gasCost, costOneKm, costDistance });
+    const { average, averageCost, totalCost } = data;
+
+    this.render({ average, averageCost, totalCost });
     e.currentTarget.reset();
   }
 }

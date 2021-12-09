@@ -1,11 +1,7 @@
 import AverageDistanceWidget from './calc-widget.js';
 import AverageDistanceCalculator from './averageDistance-calculator.js';
 
-export default function setupAverageDistanceWidget(
-  submitBtn,
-  clearBtn,
-  navBtn,
-) {
+export default function setupAverageDistanceWidget(submitBtn, clearBtn) {
   const refs = {
     resultAverage: document.querySelector('.gasCosts'),
     resultCost: document.querySelector('.costOneKm'),
