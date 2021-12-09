@@ -6,7 +6,7 @@ export default class AverageDistanceWidget {
     this.refs = refs;
   }
 
-  render({ gasCost, costOneKm, costDistance, distance }) {
+  render({ gasCost, costOneKm, costDistance }) {
     this.refs.resultAverage.innerText = costOneKm;
     this.refs.resultCost.innerText = gasCost;
     this.refs.resultTotalCost.innerText = costDistance;
@@ -17,7 +17,6 @@ export default class AverageDistanceWidget {
     this.refs.resultAverage.innerText = '';
     this.refs.resultCost.innerText = '';
     this.refs.resultTotalCost.innerText = '';
-    this.refs.kilometers.innerText = '';
     this.refs.toggleResult.style.display = 'none';
     clearData();
   }

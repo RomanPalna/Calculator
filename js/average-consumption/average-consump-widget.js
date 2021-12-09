@@ -14,9 +14,9 @@ export default class AverageConsumptionWidget {
   }
 
   clear() {
-    this.refs.resultAvarage.innerText = average;
-    this.refs.resultCost.innerText = cost;
-    this.refs.resultTotalCost.innerText = totalCost;
+    this.refs.resultAvarage.innerText = '';
+    this.refs.resultCost.innerText = '';
+    this.refs.resultTotalCost.innerText = '';
     this.refs.toggleResult.style.display = 'none';
     clearData();
   }
